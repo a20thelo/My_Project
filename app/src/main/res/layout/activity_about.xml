@@ -6,17 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <ListView
-        android:id="@+id/list_view"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ListView>
+        android:layout_height="match_parent"/>
 
     <Button
-        android:id="@+id/button_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="About the app" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="Back to main page"
+        android:id="@+id/button_about"/>
+
 </RelativeLayout>
