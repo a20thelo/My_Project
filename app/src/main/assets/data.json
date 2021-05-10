@@ -1,0 +1,51 @@
+[{
+  "ID": "Jakarta",
+  "name": "Jabodetabekjur",
+  "type": "a20thelo",
+  "company": "",
+  "location": "Indonesien",
+  "category": "",
+  "size": 10749,
+  "cost": 0,
+  "auxdata": null
+}, {
+  "ID": "Mexico City",
+  "name": "Zona Metropolitana del Valle de México",
+  "type": "a20thelo",
+  "company": "",
+  "location": "Mexiko",
+  "category": "",
+  "size": 7866,
+  "cost": 0,
+  "auxdata": null
+}, {
+  "ID": "Seoul",
+  "name": "Seoul-Incheon-Gyeonggi",
+  "type": "a20thelo",
+  "company": "",
+  "location": "Sydkorea",
+  "category": "",
+  "size": 11706,
+  "cost": 0,
+  "auxdata": null
+}, {
+  "ID": "Shanghai",
+  "name": "Shanghai Shixiaqu",
+  "type": "a20thelo",
+  "company": "",
+  "location": "Kina",
+  "category": "",
+  "size": 5155,
+  "cost": 0,
+  "auxdata": null
+}, {
+  "ID": "Tokyo",
+  "name": "Kanto storstadsregion",
+  "type": "a20thelo",
+  "company": "",
+  "location": "Japan",
+  "category": "",
+  "size": 14034,
+  "cost": 0,
+  "auxdata": null
+}]
