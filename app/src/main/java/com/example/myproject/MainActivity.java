@@ -8,7 +8,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,18 +21,43 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
+    private Data[] cities;
+    private ArrayList<Data> arrayData;
+    private ArrayAdapter<Data> adapter;
 
 
+    @SuppressWarnings("SameParameterValue")
+    private String readFile(String fileName) {
+        try {
+            //noinspection CharsetObjectCanBeUsed
+            return new Scanner(getApplicationContext().getAssets().open(fileName), Charset.forName("UTF-8").name()).useDelimiter("\\A").next();
+        } catch (IOException e) {
+            Log.e("DATA", "Could not read file: " + "data.json");
+            return null;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20thelo");
+        String s = readFile("data.json");
+        Log.d("MainActivity","The following text was found in textfile:\n\n"+s);
+
+        arrayData = new ArrayList<>();
+        adapter= new ArrayAdapter<Data>(MainActivity.this,R.layout.list,arrayData);
+
+        ListView myListView=findViewById(R.id.list_view);
+        myListView.setAdapter(adapter);
+
 
         button = (Button) findViewById(R.id.button_main);
         button.setOnClickListener(new View.OnClickListener() {
@@ -36,11 +65,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 openAboutActivity();
             }
+
         });
+
+
+
+        new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20thelo");
     }
 
+
     public void openAboutActivity() {
-        Intent intent  = new Intent (this, AboutActivity.class);
+        Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
 
@@ -86,8 +121,22 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String json) {
-            Log.d("TAG", json);
+            Log.d("DATA", json);
+
+            Gson gson = new Gson();
+            Data[] tempdata = gson.fromJson(json, Data[].class);
+
+            arrayData.addAll(Arrays.asList(tempdata));
+
+            for (int i = 0; i < tempdata.length; i++) {
+                Data m = tempdata[i];
+                Log.d("DATA", m.toString());
+
+            }
+
+            adapter.notifyDataSetChanged();
+
         }
     }
-
 }
+

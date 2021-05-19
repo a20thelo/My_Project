@@ -7,9 +7,10 @@ public class Data {
     private String company;
     private String location;
     private String category;
-    private String size;
+    private int size;
     private String cost;
-    private String auxdata;
+    private Auxdata auxdata;
 
-
+    @Override
+    public String toString() { return name; }
 }
