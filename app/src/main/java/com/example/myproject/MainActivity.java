@@ -27,8 +27,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
-    private Data[] cities;
     private ArrayList<Data> arrayData;
     private ArrayAdapter<Data> adapter;
 
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         myListView.setAdapter(adapter);
 
 
-        button = (Button) findViewById(R.id.button_main);
+        Button  button = findViewById(R.id.button_main);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
