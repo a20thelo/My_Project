@@ -27,8 +27,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<Data> arrayData;
-    private ArrayAdapter<Data> adapter;
+    private ArrayList<City> arrayData;
+    private ArrayAdapter<City> adapter;
 
 
     @SuppressWarnings("SameParameterValue")
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             //noinspection CharsetObjectCanBeUsed
             return new Scanner(getApplicationContext().getAssets().open(fileName), Charset.forName("UTF-8").name()).useDelimiter("\\A").next();
         } catch (IOException e) {
-            Log.e("DATA", "Could not read file: " + "data.json");
+            Log.e("DATA=>", "Could not read file: " + "data.json");
             return null;
         }
     }
@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String s = readFile("data.json");
-        Log.d("MainActivity","The following text was found in textfile:\n\n"+s);
+        Log.d("DATA=>","The following text was found in textfile:\n\n"+s);
 
         arrayData = new ArrayList<>();
-        adapter= new ArrayAdapter<Data>(MainActivity.this,R.layout.list,arrayData);
+        adapter= new ArrayAdapter<City>(MainActivity.this,R.layout.list,arrayData);
 
         ListView myListView=findViewById(R.id.list_view);
         myListView.setAdapter(adapter);
@@ -122,13 +122,13 @@ public class MainActivity extends AppCompatActivity {
             Log.d("DATA", json);
 
             Gson gson = new Gson();
-            Data[] tempdata = gson.fromJson(json, Data[].class);
+            City[] tempdata = gson.fromJson(json, City[].class);
 
             arrayData.addAll(Arrays.asList(tempdata));
 
             for (int i = 0; i < tempdata.length; i++) {
-                Data m = tempdata[i];
-                Log.d("DATA", m.toString());
+                City m = tempdata[i];
+                Log.d("DATA=>", m.toString());
 
             }
 

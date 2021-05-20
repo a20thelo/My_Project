@@ -1,6 +1,6 @@
 package com.example.myproject;
 
-public class Data {
+public class City {
     private String ID;
     private String name;
     private String type;
