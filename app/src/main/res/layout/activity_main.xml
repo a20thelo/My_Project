@@ -8,20 +8,32 @@
 
     <ListView
         android:id="@+id/list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="338dp"
+        android:layout_height="598dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="53dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"></LinearLayout>
-    </ListView>
-
-        <Button
-            android:id="@+id/button_main"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About the app"></Button>
+    <Button
+        android:id="@+id/button_main"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="216dp"
+        android:layout_marginRight="216dp"
+        android:text="About the app"></Button>
 
 
 </RelativeLayout>
